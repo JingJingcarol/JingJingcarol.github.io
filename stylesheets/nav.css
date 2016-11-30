@@ -1,6 +1,6 @@
 header{width: 100%; max-height: 60px;min-height: 40px;background: #fafafa;text-align: center;}
 nav{max-width: 1200px;margin: auto; }
-nav li{display: inline-block;padding: 0 10px;line-height: 3;}
+nav li{display: inline-block;padding: 0 10px;line-height: 2;}
 nav .logo-button{float: left;}
 nav .nav-left{float: left;}
 nav .nav-right{float: right;}
