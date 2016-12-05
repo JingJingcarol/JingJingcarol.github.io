@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+	    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+	    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+	    <link rel="stylesheet" type="text/css" href="../stylesheets/nav.css" media="screen">
+	    	<style>
+	    		#first-span-red:first-letter {
+				    color: #cd0000;
+				}
+				#first-span-red > span {
+				    display: flex;
+				}
+				#first-letter-color:first-letter {
+				    color: red;
+				}
+				#first-letter-color > span {
+				    color: blue!important;
+				    }
+	    	</style>
+	</head>
+	<body>
+		<section class="page-header page-header-article">
+		  <nav>
+				<ul class="logo-button">
+          			<li><a href="#">carol</a></li>
+				</ul>
+				<div class="collapse">
+					<ul class="nav-left">
+						<li><a href="../index.html">首页</a></li>
+						<li class="dropdown dropdown-toggle"><a href="#">更多</a>
+							<ul class="sub-list-collapse">
+								<li><a href="map.html">blog</a></li>
+								<li><a href="#">frame</a></li>
+								<li><a href="#">demo</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav-right ">
+					</ul>
+				</div>
+			</nav>
+	      <h1 class="project-name">关于伪类，伪元素css的整理总结（一）</h1>
+	      <h2 class="project-tagline"></h2>
+	    </section>
+	    <section class="main-content">
+	      <h1>::first-line</h1>
+	      <p>"first-line" 伪元素用于向文本的首行设置特殊样式</p>
+	      <pre>p:first-line 
+{
+color:#ff0000;
+font-variant:small-caps;
+}</pre>
+		  <p><strong>注意：</strong>"first-line" 伪元素只能用于块级元素。</p>
+		  <p><strong>注意：</strong> 下面的属性可应用于 "first-line" 伪元素：</p>
+		  <ol>
+		  	<li>font properties</li>
+			<li>color properties </li>
+			<li>background properties</li>
+			<li>word-spacing</li>
+			<li>letter-spacing</li>
+			<li>text-decoration</li>
+			<li>vertical-align</li>
+			<li>text-transform</li>
+			<li>line-height</li>
+			<li>clear</li>
+		  </ol>
+		  <h1>::first-letter</h1>
+		  <p>"first-letter" 伪元素用于向文本的首字母设置特殊样式：</p>
+		  <pre>p:first-letter 
+{
+color:#ff0000;
+font-size:xx-large;
+}</pre>
+          <p><strong>注意：</strong></p>
+          <ol>
+          	<li>首先，元素的<code>display</code>计算值必须是 <code>block</code>, <code>inline-block</code>, <code>table-cell</code>, <code>list-item</code>或者<code>table-caption</code></li>
+          	<li>常见的标点符号，各类括号和引号在<code>::first-letter</code>“辅助类”字符不算在第一字符的个数内，这些  “赠品字符”包括：
+          		<code>•</code> <code>@</code> <code>#</code> <code>%</code> <code>&</code> <code>*</code> <code>(</code> <code>)</code> <code>（</code> <code>）</code>
+          		<code>[</code> <code>]</code> <code>【</code> <code>】</code> <code>{</code> <code>}</code> <code>:</code> <code>：</code> <code>"</code>
+          		<code>“</code> <code>”</code> <code>;</code> <code>；</code> <code>'</code> <code>‘</code> <code>’</code> <code>》</code>
+          		<code>《</code> <code>,</code> <code>，</code> <code>.</code> <code>。</code> <code>？</code> <code>?</code> <code>!</code>
+          		<code>！</code> <code>…</code> <code>*</code> <code>、</code> <code>/</code> <code>\</code>。
+          		正常直接可以作为伪元素的字符就是数字，英文字母，中文以及$以及一些运算符以及非常容易忽视的<strong>空格</strong>等。
+          		这里空格有必要再加粗强调下，很容易忽视的一个字符</li>
+          	<li>最后，字符前面不能有图片或者<code>inline-block</code>之类的元素存在</li>
+          </ol>
+         
+          <h3>可应用于 "first-line" 伪元素的css属性仅仅是一部分有效，如下：</h3>
+          <ol>
+          	<li>所有字体相关属性：<code>font</code>, <code>font-style</code>, <code>font-variant</code>, <code>font-weight</code>, 
+          		<code>font-size</code>, <code>line-height</code>以及<code>font-family</code>.</li>
+          	<li>所有背景相关属性：<code>background-color</code>, <code>background-image</code>, <code>background-position</code>, 
+          		<code>background-repeat</code>, <code>background-size</code>以及<code>background-attachment</code>.</li>
+          	<li>所有margin相关属性：<code>margin</code>, <code>margin-top</code>, <code>margin-right</code>, 
+          		<code>margin-bottom</code>, <code>margin-left</code>.</li>
+          	<li>所有padding相关属性：<code>padding</code>, <code>padding-top</code>, <code>padding-right</code>, 
+          		<code>padding-bottom</code>, <code>padding-left</code>.</li>
+          	<li>所有border相关属性：缩写的<code>border</code>, <code>border-style</code>, <code>border-color</code>, <code>border-width</code>及普通书写的属性。</li>
+          	<li>color属性。</li>
+          	<li><code>text-decoration</code>, <code>text-transform</code>, <code>letter-spacing</code>, <code>word-spacing</code>(合适情境下),
+          		<code>line-height</code>, <code>float</code>, <code>vertical-align</code>（只有当float为none的时候）这些CSS属性们.</li>
+          </ol>
+         
+          <h3>other</h3>
+          <ol>
+          	<li>支持部分display属性值标签嵌套
+          		<p>::first-letter伪元素获取可以跨标签，也就是不仅能选作匿名内联盒子，还能透过层层标签进行选择，但是，也是有一些限制，并不是所有标签嵌套都是有用的。</p>
+          		<p>display值如果是<code>inline</code>, <code>block</code>, <code>table</code>, <code>table-row</code>, <code> table-caption</code>, <code>table-cell</code>, <code>list-item</code>；
+          			但是不能是<code>inline-block</code>, <code>inline-table</code>会直接无效；
+          			而<code>display:flex</code>则改变了规则，直接选择了下一行的字符内容。</p>
+          			<pre>p:first-letter {
+    color: #cd0000;
+}
+p > span {
+    display: flex;
+}
+&lt;p&gt;&lt;span&gt;第一个&lt;/span&gt;字符看看会不会变红？&lt;/p&gt;</pre>
+ 
+		    <pre>效果：
+<p id="first-span-red"><span>第一个</span>字符看看会不会变红？</p></pre>
+
+          	</li>
+          	<li> 颜色等权重永远最高
+          		<pre>p:first-letter {
+    color: red;
+}
+p > span {
+    color: blue!important;
+}
+&lt;p&gt;&lt;span&gt;第一个&lt;/span&gt;字符看看会不会变红？&lt;/p&gt;</pre>
+				<pre>效果：
+<p id="first-letter-color"><span>第一个</span>字符看看会不会变红？</p></pre>
+          	</li>
+          </ol>
+         
+	      <footer class="site-footer">
+	
+	        <span class="site-footer-credits">This page was designed by jingjingcarol</span>
+	      </footer>
+	
+	    </section>
+	</body>
+</html>
