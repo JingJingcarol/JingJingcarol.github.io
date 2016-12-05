@@ -1,0 +1,26 @@
+body{
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	text-align: center;
+	background-color: #159957;
+	background-image: linear-gradient(120deg, #155799, #159957);
+}
+.main-content .box{
+	float: left;
+	/*display: inline-block;*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(255,255,255,0.2);
+	margin: 0.5rem;
+	padding: 0.2rem;
+	width: 16rem;
+	height: 17rem;
+	padding: 5px;
+	border-radius: 8px;
+}
+
+footer{
+	clear: both;
+}
