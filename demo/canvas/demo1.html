@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/nav.css" />
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			html,body{
+				width: 100%;
+				height:100%;
+			}
+			canvas{
+				background: black;
+			}
+		</style>
+		<!--<script src="js/jquery-2.2.1/jquery.min.js"></script>-->
+		<script>
+		    
+			window.onresize = function(){
+				var c = document.getElementById("canvas");
+				c.width = window.innerWidth;
+				c.height = window.innerHeight;
+			}
+			window.onload = function(){
+				//canvas的宽高不加单位，坐标与px不对应
+				var c = document.getElementById("canvas");
+				c.width = window.innerWidth;
+				c.height = window.innerHeight;
+				var w = c.width;
+			    var h = c.height;
+			 	var lines = [];
+			    var qua = 1; //每次生成线条个数
+				var ctx = c.getContext("2d");
+				
+				setInterval(createLine,1000);
+				draw();
+				
+				function createLine(){
+					for(var i = 0; i < qua; i++){
+						line = {
+							x : w*.5,  
+							y : h*.5,
+							l : 20,    
+							d : 0,     
+							co : 'rgba('+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+',alp)'
+//							co : '#' + (Math.random() * 0x404040 + 0xaaaaaa | 0).toString(16)
+						}
+						lines.push(line);
+					}
+				}
+				function draw(){
+					//每次清画布，合成：覆盖
+					ctx.globalCompositeOperation = 'source-over';
+					ctx.fillStyle = 'rgba(0,0,0,0.08)';
+   					ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+   					//当线条个数个数大于5，删第一个
+   					if(lines.length > 5)
+   						lines.shift();
+   						
+					for(var i in lines){
+						var line = lines[i];
+						
+						var x = line.x;
+						var y = line.y;
+						ctx.beginPath();
+						ctx.moveTo(x,y);
+						var cos = Math.cos(2*Math.PI/360*line.d);
+						var sin = Math.sin(2*Math.PI/360*line.d);
+						y += line.l*cos;
+						x += line.l*sin;
+						
+						//边界时限制
+						x = Math.max( Math.min( x, w ), 0 );
+						y = Math.max( Math.min( y, h ), 0 );
+						
+						
+						ctx.lineTo(x,y);
+						ctx.strokeStyle = 'aqua';
+						ctx.lineJoin = "round";
+						ctx.lineWidth = 3;
+						var co = line.co.replace('alp', 0.5);
+						var bco = line.co.replace('alp', 1);
+						
+						ctx.globalCompositeOperation = 'lighter';
+						//设置渐变
+						var lineargradient = ctx.createLinearGradient(line.x,line.y,x,y);
+						lineargradient.addColorStop(0,co);
+                        lineargradient.addColorStop(1,bco);
+                        
+                        ctx.strokeStyle = lineargradient;
+                        ctx.fillStyle = bco;
+						ctx.stroke();
+						ctx.arc(x, y, 3/2, 0, Math.PI*2, true);
+						ctx.fill();
+						
+						//记下新的x,y,d
+						line.x = x;
+						line.y = y;
+						var lop = [1,-1];
+						var loop = lop[Math.floor(Math.random()*2)];
+						line.d += 60*loop;
+					}
+					//定时器
+					setTimeout(draw,1000/10);
+				}
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<nav>
+			<ul class="logo-button">
+     			 <li><a href="#">carol</a></li>
+			</ul>
+			<div class="collapse">
+				<ul class="nav-left">
+					<li><a href="index.html">首页</a></li>
+					<li class="dropdown dropdown-toggle"><a href="#">更多</a>
+						<ul class="sub-list-collapse">
+							<li><a href="article/map.html">blog</a></li>
+							<li><a href="#">frame</a></li>
+							<li><a href="#">demo</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav-right ">
+					<li ><a href="demo4.html">demo1</a></li>
+					<li ><a href="demo3.html">demo2</a></li>
+					<li ><a href="demo2.html">demo3</a></li>
+					<li ><a href="demo1.html">demo4</a></li>
+					<li ><a href="index.html">demo5</a></li>
+					<li><a href="map.html">返回</a></li>
+				</ul>
+			</div>
+		</nav>
+	</body>
+</html>
