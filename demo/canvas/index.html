@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/nav.css"/>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				background: rgba(0,0,0,.8);
+				text-align: center;
+			}
+			canvas{
+				margin: auto;
+			    margin-top: 10%;
+				background: black;
+			}
+		</style>
+		<script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js" ></script>
+		<script>
+		var SCREEN_WIDTH = 500
+	        ,SCREEN_HEIGHT = 500
+	        ,RADIUS = 110
+	        ,RADIUS_SCALE = 1;
+			
+			var mouseX = (window.innerWidth - SCREEN_WIDTH);
+			var mouseY = (window.innerHeight - SCREEN_HEIGHT);
+	        var qua = 10;
+	        var particles = [];
+			$(function(){
+				var canvas = $( '#canvas' )[0];
+				context = canvas.getContext('2d');
+				
+				$(canvas).mousemove(function(e){
+					mouseX = e.clientX - (window.innerWidth - SCREEN_WIDTH) * .5;
+					mouseY = e.clientY - (window.innerHeight - SCREEN_HEIGHT) * .5;
+				});
+				for(var i = 0; i < qua; i++){
+					var particle = {
+						position: { x: mouseX, y: mouseY },
+						shift: { x: mouseX, y: mouseY },
+						size: 1,
+						angle: 0,
+						speed: 0.01+Math.random()*0.04,
+						targetSize: 1,
+						fillColor: '#' + (Math.random() * 0x404040 + 0xaaaaaa | 0).toString(16),
+						orbit: RADIUS*.5 + (RADIUS * .5 * Math.random())
+					};
+					particles.push(particle);
+				}
+				
+				setInterval( loop, 1000 / 60 );
+				function loop() {
+					context.fillStyle = 'rgba(0,0,0,0.05)';
+   					context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+   					for(var i in particles){
+   						var particle = particles[i];
+	   					var lp = { x: particle.position.x, y: particle.position.y };
+				
+						// Offset the angle to keep the spin going
+						particle.angle += particle.speed;
+						
+						// Follow mouse with some lag
+						particle.shift.x += ( mouseX - particle.shift.x) * (particle.speed);
+						particle.shift.y += ( mouseY - particle.shift.y) * (particle.speed);
+						
+						// Apply position
+						particle.position.x = particle.shift.x + Math.cos(i + particle.angle) * (particle.orbit*RADIUS_SCALE);
+						particle.position.y = particle.shift.y + Math.sin(i + particle.angle) * (particle.orbit*RADIUS_SCALE);
+						
+						// Limit to screen bounds
+						particle.position.x = Math.max( Math.min( particle.position.x, SCREEN_WIDTH ), 0 );
+						particle.position.y = Math.max( Math.min( particle.position.y, SCREEN_HEIGHT ), 0 );
+						
+						particle.size += ( particle.targetSize - particle.size ) * 0.05;
+						
+						// If we're at the target size, set a new one. Think of it like a regular day at work.
+						if( Math.round( particle.size ) == Math.round( particle.targetSize ) ) {
+							particle.targetSize = 1 + Math.random() * 7;
+						}
+						
+						context.beginPath();
+						context.fillStyle = particle.fillColor;
+						context.strokeStyle = particle.fillColor;
+						context.lineWidth = particle.size;
+						context.moveTo(lp.x, lp.y);
+						context.lineTo(particle.position.x, particle.position.y);
+						context.stroke();
+						context.arc(particle.position.x, particle.position.y, particle.size/2, 0, Math.PI*2, true);
+						context.fill();
+					}
+				}
+			})
+		</script>
+	</head>
+	<body>
+		<canvas id="canvas" width="500px" height="500px"></canvas>
+		<nav>
+			<ul class="logo-button">
+     			 <li><a href="#">carol</a></li>
+			</ul>
+			<div class="collapse">
+				<ul class="nav-left">
+					<li><a href="index.html">首页</a></li>
+					<li class="dropdown dropdown-toggle"><a href="#">更多</a>
+						<ul class="sub-list-collapse">
+							<li><a href="article/map.html">blog</a></li>
+							<li><a href="#">frame</a></li>
+							<li><a href="#">demo</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav-right ">
+					
+					<li ><a href="demo4.html">demo1</a></li>
+					<li ><a href="demo3.html">demo2</a></li>
+					<li ><a href="demo2.html">demo3</a></li>
+					<li ><a href="demo1.html">demo4</a></li>
+					<li ><a href="index.html">demo5</a></li>
+					<li><a href="map.html">返回</a></li>
+				</ul>
+			</div>
+		</nav>
+	</body>
+</html>
