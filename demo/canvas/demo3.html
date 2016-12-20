@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/nav.css"/>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			html,body{
+				width: 100%;
+				height:100%;
+				
+			}
+			canvas{
+				background: radial-gradient(#011328 10%, #011328);
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				//canvas的宽高不加单位，坐标与px不对应
+				var c = document.getElementById("canvas");
+				c.width = window.innerWidth;
+				c.height = window.innerHeight;
+				var w = c.width;
+			    var h = c.height;
+			    var maxStars = 1000;
+			    var stars = [];
+			    var ctx = c.getContext("2d");
+			    
+				createStars();
+			    draw();
+			    
+			    function random(min, max) {
+  					return Math.floor(Math.random() * (max - min + 1)) + min;
+				}
+			    
+			    function createStars(){
+			    	
+			    	for(var i = 0; i < maxStars; i++){
+			    		var oR = random(0,Math.round(Math.sqrt(Math.max(w, h) * Math.max(w, h)*2))/2);
+			    		//star x,y:屏幕中心，or 星星距中心距离，alp 透明度，s 运动速率（弧度），t 初始弧度
+			    		var star = {
+			    			or : oR,
+			    			r  : random(60, oR) / 120,
+			    			x  : w/2,
+			    			y  : h/2,
+			    			t  : random(0, maxStars),
+			    			alp : random(2, 10) / 10,
+			    			s  : random(0,oR) / 900000
+			    		}
+			    		stars.push(star);
+			    	}
+			    }
+			    function draw(){
+			    	//每次清画布，合成：覆盖
+					ctx.globalCompositeOperation = 'source-over';
+					var half = w / 2;
+					var gradient = ctx.createRadialGradient(half, half, 0, half, half, half);
+					gradient.addColorStop(0, 'rgba(1,19,40,0.1)');
+					
+					gradient.addColorStop(1, 'rgba(1,19,40,0.8)');
+					
+					ctx.fillStyle = gradient;
+//					ctx.fillStyle = 'rgba(10,64,131,0.2)';
+   					ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+   					
+   					for(var i in stars){
+   						var star = stars[i];
+   						var x = Math.sin(star.t) * star.or + star.x,
+    						y = Math.cos(star.t) * star.or + star.y,
+						    twinkle = random(0,10);
+						//twinkle，透明度变化随机
+						  if (twinkle === 1 && star.alp > 0) {
+						    star.alp -= 0.05;
+						  } else if (twinkle === 2 && star.alp < 1) {
+						    star.alp += 0.05;
+						  }
+						  
+						  ctx.beginPath();
+						  ctx.globalAlpha = star.alp;
+						  var co = "rgba(255,255,255,alp)".replace("alp",star.alp);;
+						  var  r = random(0,3);
+						  var gradient1 = ctx.createRadialGradient(x - star.r / 2, y - star.r / 2, 0, x - star.r / 2, y - star.r / 2, star.r);
+								gradient1.addColorStop(0, co);
+								gradient1.addColorStop(1, 'rgba(255,255,255,0)');
+//						  ctx.fillStyle = "rgba(255,255,255,alp)".replace("alp",star.alp);
+						  ctx.fillStyle = gradient1;
+						  ctx.globalCompositeOperation = 'lighter';
+						  ctx.arc(x - star.r / 2, y - star.r / 2, star.r,0, Math.PI*2, true);
+						  ctx.fill();
+						  star.t += star.s;
+   					}
+   					setTimeout(draw,1000/60);
+			    }
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<nav>
+			<ul class="logo-button">
+     			 <li><a href="#">carol</a></li>
+			</ul>
+			<div class="collapse">
+				<ul class="nav-left">
+					<li><a href="index.html">首页</a></li>
+					<li class="dropdown dropdown-toggle"><a href="#">更多</a>
+						<ul class="sub-list-collapse">
+							<li><a href="article/map.html">blog</a></li>
+							<li><a href="#">frame</a></li>
+							<li><a href="#">demo</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav-right ">
+					<li ><a href="demo4.html">demo1</a></li>
+					<li ><a href="demo3.html">demo2</a></li>
+					<li ><a href="demo2.html">demo3</a></li>
+					<li ><a href="demo1.html">demo4</a></li>
+					<li ><a href="index.html">demo5</a></li>
+					<li><a href="map.html">返回</a></li>
+				</ul>
+			</div>
+		</nav>
+	</body>
+</html>
