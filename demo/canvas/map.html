@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			html,body{
+				width: 100%;
+				height:100%;
+				background: #111;
+				font-family: "微软雅黑";
+			}
+			#nav {
+				width: 130px;
+				height: 400px;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+			}
+			
+			#nav li {
+				position: absolute;
+				left: 0;
+				top: 0;
+				list-style: none;
+				transform-origin:15px 275px ;
+				box-shadow: 0px 0px 10px rgba(0,0,0,1);
+				transition: 1s;
+				cursor: pointer;
+				
+				width : 150px;
+				height :400px;
+				border-radius: 10px;
+			}
+			#nav li a{
+				color: #fff;
+				font-size: 30px;
+				text-decoration: none;
+				padding-top:20px;
+				padding-left:20px;
+			}
+			.m{
+				background: #826d62;
+				color: #fff;
+				font-size: 36px;
+				padding:63px;
+				padding-top: 70px;
+				
+				position: relative;
+				
+			}
+			.m .r1{
+				background: #FFFFFF;
+				display: block;
+				position: absolute;
+				top:120px;
+				right:20px;
+				width: 65px;
+				height: 3px;
+			}
+			.a{background: #ed7641;}
+			.b{background: #f52fa4;}
+			.c{background: #3169f8;}
+			.d{background: #19ab49;}
+			.e{background: #5f2fc0;}
+		</style>
+		<script>
+			window.onload = function(){
+				//扇形效果
+				var nav=document.getElementById('nav');
+				var lis=document.querySelectorAll('li');
+				//给封面添加点击事件
+				var clicked=true; //用来判读是否是第一次点击
+				lis[lis.length-1].onclick=function(){
+					/*i:0 1 2 3 4 5 6 7 8 9 10 11
+					 *n:n*15=度数 -6 -5 -4 -3 -2 -1 0 1 2 3 4 5
+					 *度数：－90 －75 －60 －45 －30 －15 0 15 30 45 60 75 
+					 */
+					for(var i=0;i<lis.length;i++){
+						//拿i到值－lis／2，就能得到n，拿n＊15＝度数
+						var n=i-lis.length/2;
+						var deg=0;
+						if(clicked){
+							deg=n*25;
+						}else{
+							deg=360;
+						};
+						lis[i].style.transform='rotate('+deg+'deg)';
+					};
+					clicked=!clicked;   //每点击一次换个值；
+				};
+				//给每一个li添加点击事件
+				for(var i=0;i<lis.length-1;i++){
+					lis[i].index=i; //给li加索引
+					lis[i].onclick=function(){
+					/*考虑点击后要执行到事件
+					 * 1、点击到li，需要转到0度
+					 * 2、其左边的li，依次－15deg
+					 * 3、其右边的li，依次＋30度，和＋15deg
+					 */
+					var leftDeg=0;	//左侧初始值度数
+					var rightDeg=15;		//右侧初始值度数
+					//当前li旋转
+					this.style.transform='rotate(0deg)';
+					//左侧li旋转
+					for(var i=this.index-1;i>=0;i--){
+						leftDeg-=15;
+						lis[i].style.transform='rotate('+leftDeg+'deg)';
+						};
+					//右侧li旋转
+					for(var i=this.index+1;i<lis.length;i++){
+						rightDeg+=15;
+						lis[i].style.transform='rotate('+rightDeg+'deg)';
+						};
+					};
+				};
+				
+				//canvas 气泡效果
+				var canvas=document.getElementById('canvas');
+				canvas.width=window.innerWidth;
+				canvas.height=window.innerHeight;
+				var context=canvas.getContext('2d');
+				var balls=[];	//设置圆到最大个数
+				var colors=['#69d2e7','#a7dbd8','#e0e4cc','#f38630','#fa6900','#ff4e50','#f9d423'];
+				var timer;
+				/*气泡效果，气泡＝圆
+				 * 1、半径
+				 * 2、颜色
+				 * 3、大小
+				 * 4、位置
+				 * 5、速度
+				 * var ball={
+				 *		x:x轴位置
+				 * 		y:y轴
+				 * 		r:半径
+				 * 		vx:x速度
+				 * 		vy:y速度
+				 * 		color:颜色
+				 * }
+				 * 角度转弧度：角度*pai/180
+				 */
+				//在canvas上画圆
+				function draw(ball){
+					context.beginPath();  //begin path
+					//arc(x,y,r,起始弧度,结束弧度)
+					context.arc(ball.x,ball.y,ball.r,0,Math.PI*2);  //Math.PI  注意大小写！
+					context.fillStyle=ball.corlor;  //填色
+					context.globalCompositeOperation='lighter'; //合成
+					context.fill();
+				};
+				//取x到y之间到随机数：Math.round(Math.random()*(y-x)+x)
+				function random(min,max){
+					return Math.round(Math.random()*(max-min)+min);
+				};
+				//给canvas添加移动事件
+				var on=true;    //鼠标移动到时候定时器也可以跑
+				canvas.onmousemove=function(ev){
+					// 在移动到时候，创建2个圆
+					for(var i=0;i<2;i++){
+						var ball={
+							x:random(-5,5)+ev.clientX,
+							y:random(-5,5)+ev.clientY+window.pageYOffset,
+							r:random(10,45),
+							vx:Math.random()-0.5,
+							vy:Math.random()-0.5,
+							corlor:colors[random(0,colors.length-1)],
+						};
+						balls.push(ball);
+						console.log(ball);
+						if(balls.length>300){
+							balls.shift(); //数组操作
+						};
+					};
+//					让定时器只开启一次
+					if(on){
+						clearInterval(timer);
+						setInterval(drallBall,30);  //定时器
+						on=false;
+					};
+					drallBall();
+					function drallBall(){
+						context.clearRect(0,0,canvas.width,canvas.height);
+						for(var i=0;i<balls.length;i++){
+							//需要在画到时候修改x，y，r
+							balls[i].x+=balls[i].vx*8;
+							balls[i].y+=balls[i].vy*8;
+							balls[i].r=balls[i].r*0.94;
+							balls[i].index=i;  //为了在下面能找到并删除
+							//当圆到半径小于1，就不让canvas
+							if(balls[i].r<1){
+								balls.splice(balls[i].index,1);
+								continue; //如果小球，已经被删，下面到代码就不用再走了。
+							};
+							draw(balls[i]);
+							if(!balls.length){   		//当balls数组为0时
+								clearInterval(timer);	//清除定时器
+								on=true;					// 定时器清掉后，on的值与定时器保持一致。
+							};
+						};
+					};
+				};
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="canvas" width="" height=""></canvas>
+		<ul id="nav">
+			<li class="a"><a href="../map.html">goBack</a></li>
+			<li class="a"><a href="index.html">demo5</a></li>
+			<li class="b"><a href="demo1.html">demo4</a></li>
+			<li class="c"><a href="demo2.html">demo3</a></li>
+			<li class="d"><a href="demo3.html">demo2</a></li>
+			<li class="e"><a href="demo4.html">demo1</a></li>
+			<li class="m">Demo
+				<span class="r1"></span>
+			</li>
+		</ul>
+	</body>
+</html>
