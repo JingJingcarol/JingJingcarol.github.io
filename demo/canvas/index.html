@@ -19,7 +19,7 @@
 				background: black;
 			}
 		</style>
-		<script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js" ></script>
+		
 		<script>
 		var SCREEN_WIDTH = 500
 	        ,SCREEN_HEIGHT = 500
@@ -30,14 +30,14 @@
 			var mouseY = (window.innerHeight - SCREEN_HEIGHT);
 	        var qua = 10;
 	        var particles = [];
-			$(function(){
-				var canvas = $( '#canvas' )[0];
+			window.onload = function(){
+				var canvas =document.getElementById("canvas");
 				context = canvas.getContext('2d');
 				
-				$(canvas).mousemove(function(e){
+				canvas.onmousemove = function(e){
 					mouseX = e.clientX - (window.innerWidth - SCREEN_WIDTH) * .5;
 					mouseY = e.clientY - (window.innerHeight - SCREEN_HEIGHT) * .5;
-				});
+				};
 				for(var i = 0; i < qua; i++){
 					var particle = {
 						position: { x: mouseX, y: mouseY },
@@ -93,7 +93,7 @@
 						context.fill();
 					}
 				}
-			})
+			}
 		</script>
 	</head>
 	<body>
