@@ -1,0 +1,132 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+body,
+html {
+    text-align: center;
+    background: rgba(0, 0, 0, .9);
+    background: url(../img/bg2.jpg);
+    background-position: center;
+    background-size: cover
+}
+
+#elsfk {
+    width: 300px;
+    height: 600px;
+    border: 2px solid;
+    color: #ffffff;
+    margin: auto;
+    background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)), url(../img/bg.jpeg);
+    background-position: center;
+    background-size: cover;
+    margin-top: 20px;
+    max-width: 70vw;
+    max-height: 140vw;
+    transform: translateX(-10%)
+}
+
+.elsfk-container {
+    position: relative;
+    box-sizing: content-box;
+}
+
+.elsfk-main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modelOne {
+    position: absolute;
+    left: 300px;
+    top: 0;
+    transition: all .5s
+}
+
+.modelOne span,
+.elsfk-one,
+.elsfk-next span {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    /* border: 1px solid rgba(255, 255, 255, .3); */
+    box-shadow: 0px 0px 4px rgba(255, 255, 255, .8) inset, 0px 0px 4px rgba(0, 0, 0, .6)
+}
+
+.elsfk-next {
+    position: absolute;
+    top: 120px;
+    right: -78px;
+    border: 2px solid #fff;
+    width: 70px;
+    height: 100px
+}
+
+.elsfk-next div {
+    position: absolute;
+    left: 10px;
+    top: 25px;
+}
+
+.elsfk-keys {
+    position: absolute;
+    right: 0;
+    width: 70px;
+    transform: translateX(110%);
+    border: 2px solid;
+    top: 230px;
+    padding: 10px;
+}
+
+.elsfk-keys span {
+    border: 1px solid;
+    padding: 8px;
+    margin: 8px;
+    display: inline-block;
+    box-shadow: 0 0 4px, 0 0 10px inset;
+}
+
+.elsfk-score,
+.elsfk-level {
+    width: 70px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(110%);
+    text-align: left;
+}
+
+.elsfk-score .score,
+.elsfk-level .level {
+    font-size: 20px
+}
+
+.elsfk-score {
+    top: 60px;
+}
+
+.dialog-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .2);
+}
+
+.dialog {
+    position: absolute;
+    padding: 30px;
+    border: 3px solid #fff;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url(../img/bg1.jpg);
+    color: #fff;
+    transition: all 1s;
+}

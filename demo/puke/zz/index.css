@@ -1,0 +1,104 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+body {
+    width: 100%;
+    background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)), url(../img/bg2.jpg);
+    color: #fff;
+    background-position: center;
+    background-size: cover
+}
+
+#zz {
+    border: 2px solid #fff;
+    width: 90%;
+    height: 90vh;
+    margin-left: 5%;
+    margin-top: 5vh;
+    background: rgb(0, 140, 86);
+    box-shadow: 0 0 80px rgba(0, 0, 0, .3) inset;
+}
+
+.puke-container {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.list {
+    /* background: rgba(0, 0, 0, .5); */
+    height: 60vh;
+    flex: 1 1 auto;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 10%;
+    min-width: 7%;
+}
+
+.pukeOne {
+    width: 90%;
+    background: rgba(255, 0, 0, .5);
+    height: 12px;
+    border-radius: 8px;
+    max-width: 130px;
+    animation: push 0.1s linear;
+}
+
+.pukeOne.open {
+    height: 30px
+}
+
+.pukeOne.arrowOpen {
+    height: 16px;
+}
+
+.pukeOne img,
+.puke-push img {
+    width: 100%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .8);
+}
+
+.puke-push {
+    position: absolute;
+    width: 80px;
+    right: 10px;
+    bottom: 10px;
+}
+
+.puke-finish-box {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    display: flex;
+}
+
+.puke-finish-box>div {
+    position: relative;
+    margin: 0 8px;
+    width: 80px;
+    height: 120px;
+}
+
+.puke-finish {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: auto;
+}
+
+@keyframes push {
+    from {
+        transform: translate(3000px, 3000px)
+    }
+    to {
+        transform: translate(0, 0)
+    }
+}
