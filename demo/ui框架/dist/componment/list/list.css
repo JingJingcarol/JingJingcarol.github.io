@@ -1,0 +1,25 @@
+.list {
+    padding: 0.5rem;
+    line-height: 1.5;
+    --action-color: var(--default)
+}
+
+.list li {
+    transition: all 0.2s;
+    padding: 0.25rem 0.5rem;
+}
+
+.md-list li {
+    margin: 0.25rem;
+}
+
+.list li:hover,
+.list li.active {
+    background-color: var(--action-color);
+    color: #fff
+}
+
+.md-list li:hover,
+.md-list li.active {
+    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, .12), 0 1px 1px 0 rgba(0, 0, 0, .24);
+}

@@ -1,0 +1,108 @@
+.btn {
+    --btn-backgrount: var(--default);
+    --btn-fontsize: 1rem;
+    background-color: var(--btn-backgrount);
+    border: 1px solid var(--btn-backgrount);
+    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, .12), 0 1px 1px 0 rgba(0, 0, 0, .24);
+    color: white;
+    --ripple-x: 0;
+    --ripple-y: 0;
+    --ripple-color: rgba(255, 255, 255, 0.54);
+    --animation-tick: 0;
+    padding: 0.5rem 1rem;
+    font-size: var(--btn-fontsize);
+    line-height: var(--btn-fontsize);
+    margin: 0.25rem;
+    border-radius: 2px
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:hover {
+    opacity: .8;
+}
+
+.btn.animating {
+    background-image: paint(ripple);
+}
+
+.btn.btn-info {
+    --btn-backgrount: var(--info);
+}
+
+.btn.btn-primary {
+    --btn-backgrount: var(--primary);
+}
+
+.btn.btn-success {
+    --btn-backgrount: var(--success);
+}
+
+.btn.btn-warning {
+    --btn-backgrount: var(--warning);
+}
+
+.btn.btn-danger {
+    --btn-backgrount: var(--danger);
+}
+
+.btn.btn-outline {
+    color: var(--btn-backgrount);
+    background-color: transparent;
+    --ripple-color: rgba(0, 0, 0, 0.54);
+}
+
+.btn.btn-round {
+    border-radius: 1.25rem/50%
+}
+
+.btn.btn-block {
+    display: block;
+    width: 100%
+}
+
+.btn.btn-sm {
+    --btn-fontsize: 0.75rem;
+    padding: 0.25rem 0.75rem;
+}
+
+.btn.btn-lg {
+    --btn-fontsize: 1.25rem;
+    padding: 0.75rem 1.75rem;
+}
+
+.btn.btn-floating {
+    border-radius: 50%;
+    padding: 0.75rem;
+}
+
+.btn.btn-floating.btn-sm {
+    padding: 0.5rem;
+}
+
+.btn.btn-floating.btn-lg {
+    padding: 1.25rem;
+}
+
+.btn.btn-floating i {
+    width: var(--btn-fontsize);
+    height: var(--btn-fontsize);
+}
+
+.btn-group {
+    display: flex;
+}
+
+.btn-group .btn:not(:first-child) {
+    margin-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.btn-group .btn:not(:last-child) {
+    margin-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}

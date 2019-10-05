@@ -1,0 +1,109 @@
+.alert-box {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+.alert-box.alert-top-right {
+    right: 0.5rem;
+    top: 0.5rem;
+    align-items: flex-end;
+}
+
+.alert-box.alert-top-center {
+    left: 50%;
+    top: 0.5rem;
+    transform: translateX(-50%);
+    align-items: center;
+}
+
+.alert-box.alert-top-left {
+    left: 0.5rem;
+    top: 0.5rem;
+    align-items: flex-start;
+}
+
+.alert-box.alert-middle-right {
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    align-items: flex-end;
+}
+
+.alert-box.alert-middle-center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+}
+
+.alert-box.alert-middle-left {
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    align-items: flex-start;
+}
+
+.alert-box.alert-bottom-right {
+    right: 0.5rem;
+    bottom: 0.5rem;
+    align-items: flex-end;
+    flex-direction: column-reverse;
+}
+
+.alert-box.alert-bottom-center {
+    left: 50%;
+    bottom: 0.5rem;
+    transform: translateX(-50%);
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+.alert-box.alert-bottom-left {
+    left: 0.5rem;
+    bottom: 0.5rem;
+    align-items: flex-start;
+    flex-direction: column-reverse;
+}
+
+.alert {
+    background: var(--info);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    min-width: 200px;
+    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, .12), 0 1px 1px 0 rgba(0, 0, 0, .24);
+    border-radius: 2px;
+    transition: all 1s;
+    margin: 0.5rem;
+    animation: alertin 0.5s;
+    display: flex;
+}
+
+.alert>*:first-child {
+    flex: 1 0 auto
+}
+
+.alert .alert-close {
+    margin-left: 1rem;
+}
+
+.alert.alert-success {
+    background: var(--success);
+}
+
+.alert.alert-warning {
+    background: var(--warning);
+}
+
+.alert.alert-danger {
+    background: var(--danger);
+}
+
+@keyframes alertin {
+    from {
+        transform: translateX(100%)
+    }
+    to {
+        transform: translateX(0)
+    }
+}

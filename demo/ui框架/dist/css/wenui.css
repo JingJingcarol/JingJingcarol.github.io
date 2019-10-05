@@ -1,0 +1,7 @@
+@import 'init.css';
+@import '../componment/button/button.css';
+@import '../componment/alert/alert.css';
+@import '../componment/form/form.css';
+@import '../componment/loading/loading.css';
+@import '../componment/list/list.css';
+@import '../componment/chart/chart.css';
