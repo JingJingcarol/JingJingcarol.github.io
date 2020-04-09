@@ -10,7 +10,7 @@
   - [从输入URL到页面加载的过程](/安全防护/从输入URL到页面加载的过程.md)
   - [关于http](/安全防护/关于http.md)
   - [http缓存](/安全防护/http缓存.md)
-  - [tcp三次握手&四次分手](/安全防护/tcp三次握手&四次分手.md)
+  - [tcp三次握手四次分手](/安全防护/tcp三次握手四次分手.md)
   - [常见web漏洞](/安全防护/XSS.md)
 - 工程化
   - /webpack/Loader和Plugin
@@ -117,7 +117,7 @@
   - 样式冲突
   - css动画 vs js动画
   - css-next
-  - 预处理器&后处理器
+  - 预处理器、后处理器
   - css doodle
 - nginx
   - [安装 nginx](/nginx/安装nginx.md)
