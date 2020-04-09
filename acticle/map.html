@@ -8,7 +8,10 @@
 	    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
 	    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
-	    <link rel="stylesheet" type="text/css" href="../stylesheets/nav.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="../stylesheets/nav.css" media="screen">
+		<link href="https://cdn.bootcss.com/github-markdown-css/4.0.0/github-markdown.min.css" rel="stylesheet">
+		<script src="../js/jq2.2.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/marked/0.8.2/marked.min.js"></script>
 	</head>
 	<body>
 		<section class="page-header page-header-article">
@@ -35,7 +38,7 @@
 	      <h2 class="project-tagline"></h2>
 	    </section>
 	    <section class="main-content">
-	      <ul>
+	      <ul id="main-body" class="markdown-body">
 	      	<li><a href="first-letter.html">关于伪类，伪元素css的整理总结（一）</a></li>
 	      </ul>
 	
@@ -44,6 +47,21 @@
 	        <span class="site-footer-credits">This page was designed by jingjingcarol</span>
 	      </footer>
 	
-	    </section>
+		</section>
+		<script>
+			$.ajax({
+				url:'./xuexibiji/README.md',
+				// type:'text',
+				success:function(text){
+					$('#main-body').html(marked(text))
+				}
+			})
+			$('#main-body').on('click','a',function(e){
+				e.preventDefault();
+				var url = $(this).attr('href');
+				var text = $(this).text();
+				window.location.href = 'acticle.html?rd=' + url + '&title=' + text
+			})
+		</script>
 	</body>
 </html>

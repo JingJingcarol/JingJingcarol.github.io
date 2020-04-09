@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+	    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+	    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="../stylesheets/nav.css" media="screen">
+        <link href="https://cdn.bootcss.com/github-markdown-css/4.0.0/github-markdown.min.css" rel="stylesheet">
+        <link href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/a11y-light.min.css" rel="stylesheet">
+        <!-- <link href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/arduino-light.min.css" rel="stylesheet"> -->
+        <!-- <link href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/arduino-light.min.css" rel="stylesheet"> -->
+        <!-- <link href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/atelier-cave-light.min.css" rel="stylesheet"> -->
+		<script src="../js/jq2.2.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/marked/0.8.2/marked.min.js"></script>
+        <script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
+	</head>
+	<body>
+		<section class="page-header page-header-article">
+		  <nav>
+				<ul class="logo-button">
+          			<li><a href="#">carol</a></li>
+				</ul>
+				<div class="collapse">
+					<ul class="nav-left">
+						<li><a href="../index.html">首页</a></li>
+						<li class="dropdown dropdown-toggle"><a href="#">更多</a>
+							<ul class="sub-list-collapse">
+								<li><a href="map.html">blog</a></li>
+								<li><a href="../frameArticle/map.html">frame</a></li>
+								<li><a href="../demo/map.html">demo</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav-right ">
+					</ul>
+				</div>
+			</nav>
+	      <h1 class="project-name" style="clear: both;">myBlog</h1>
+	      <h2 class="project-tagline"></h2>
+	    </section>
+	    <section class="main-content">
+	      <ul id="main-body" class="markdown-body">
+	      	<li><a href="first-letter.html">关于伪类，伪元素css的整理总结（一）</a></li>
+	      </ul>
+	
+	      <footer class="site-footer">
+	
+	        <span class="site-footer-credits">This page was designed by jingjingcarol</span>
+	      </footer>
+	
+		</section>
+		<script>
+            marked.setOptions({
+                highlight: function (code) {
+                    return hljs.highlightAuto(code).value;
+                }
+            });
+            function GetQueryString(name) { 
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+                var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+                var context = ""; 
+                if (r != null) 
+                    context = r[2]; 
+                reg = null; 
+                r = null; 
+                return context == null || context == "" || context == "undefined" ? "" : context; 
+            }
+            $('.project-name').html(decodeURIComponent(GetQueryString('title')));
+			$.ajax({
+				url:'./xuexibiji' + decodeURIComponent(GetQueryString('rd')),
+				// type:'text',
+				success:function(text){
+                    $('#main-body').html(marked(text))
+                    $('#main-body img').each(function(){
+                        var src = $(this).attr('src');
+                        if(src.indexOf('http') == -1){
+                            src = './xuexibiji/' + src.replace('../','');
+                            $(this).attr('src',src)
+                        }
+                        
+                    })
+				}
+            })
+            $('#main-body').on('click','a',function(e){
+                var url = $(this).attr('href');
+                if(url.indexOf('http') == -1 && url.indexOf('img') == -1){
+                    e.preventDefault();
+				
+                    var text = $(this).text();
+                    if(url.indexOf('../') == 0){
+                        url = url.replace('..','');    
+                    }
+                    window.location.href = 'acticle.html?rd=' + url + '&title=' + text
+                }
+				
+            })
+            
+		</script>
+	</body>
+</html>

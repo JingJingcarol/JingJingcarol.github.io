@@ -1,0 +1,64 @@
+html{
+    font-size: 12px;
+}
+body{
+    height: 100vh;
+    overflow: hidden;
+    background:#003b4a;
+    position: relative;
+    color: #d6e2e4;
+    padding: 1rem;
+}
+
+body::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100vw;
+    height: 30vh;
+    top:-15vh;
+    background: radial-gradient(#9cd3de,transparent,transparent);
+    opacity: .2;
+    z-index: -1;
+
+}
+.cell{
+    cursor: pointer;
+    padding: 1rem;
+    margin: -1rem;
+}
+.cell:hover{
+    box-shadow: 0 0 1rem #9cd3de inset;
+}
+.cell-v{
+    font-size: 1.3rem;
+    color: #67dcff;
+}
+.progress{
+    width: 100%;
+    height: 2rem;
+    box-shadow: 0 0 10px #009fc7 inset;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+}
+.progress span{
+    display: inline-block;
+    min-width: 3rem;
+    height: 100%;
+    background: #38eca2;
+    box-shadow: 0 0 10px #003b4a inset, 4px 0 4px #003442;
+    line-height: 2rem;
+    padding: 0 0.5rem;
+    text-shadow: 1px 1px rgba(222, 232, 234, 0.3);
+    color: #003b4a;
+}
+.progress .error{
+    background: #ff24c6;
+}
+.progress .warning{
+    background: #ffe424;
+}
+.progress .info{
+    background: #24c2ff;
+}

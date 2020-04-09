@@ -204,6 +204,7 @@ class cell {
         this.cell.style.top = this.pos[1]*this.cellwidth + 2 + 'px';
         this.cell.style.fontSize = (this.cellwidth / 2 - this.val/100)   + 'px';
         this.cell.style.background = `rgba(0, 240, 253,${1 - 0.5/Math.log(this.val)})`;
+        // this.cell.style.background = `hsl(${0.5/Math.log(this.val)},${100 - 0.5/Math.log(this.val)}%,${0.5/Math.log(this.val)}%)`;
         this.cell.innerHTML = this.val;
     }
     getPos(){

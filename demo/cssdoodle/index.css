@@ -1,0 +1,285 @@
+body {
+    margin: 0px;
+    height: 100vh;
+    max-width: 100vw;
+    overflow: hidden;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  background:#001a3c;
+}
+:root{
+    --water-color: (
+        filter: @svg-filter(<svg>
+        <filter
+            x="-20%" y="-20%" width="140%" height="140%"
+            filterUnits="objectBoundingBox"
+            primitiveUnits="userSpaceOnUse"
+            style="colorInterpolationFilters: linearrgb"
+        >
+            <feTurbulence type="turbulence"
+            baseFrequency="0.01 0.05"
+            numOctaves="1"
+            seed="24"
+            stitchTiles="noStitch"
+            result="turbulence" />
+            <feDisplacementMap scale="200"
+            in="SourceGraphic" in2="turbulence"
+            xChannelSelector="G" yChannelSelector="A"
+            result="displacementMap" />
+        </filter>
+        </svg>);
+    );
+}
+css-doodle{
+    /* --rule: (
+        :doodle {
+            @grid: 10 / 100vmax 100vmax;
+            background:linear-gradient(45deg, #009EFA,#00D2FC,#4FFBDF);
+            overflow:hidden;
+        }
+        @place-cell: @rand(0, 100)% @rand(0, 100)%;
+        --p1:@rand(-50%, 50%);
+        --p2:@rand(-50%, 50%);
+        --size:@rand(0.2, 1.25);
+
+        @place-item: center;
+        @shape: circle;
+        background:radial-gradient(rgba(255,255,255,0), rgba(255,255,255,0.5));
+        opacity:1.0;
+        transform: scale(@var(--size)) translate(@var(--p1), @var(--p2));
+        animation: bubble 10s linear infinite;
+
+        @keyframes bubble {
+            0%{
+                transform: scale(@var(--size)) translate(@var(--p1), @var(--p2));
+            }
+            50%{
+                opacity: @rand(0.3, 0.7);
+                transform: scale(@rand(0.2, 1.25)) translate(@rand(-50%, 50%), @rand(-50%, 50%));
+            }
+            100%{
+                transform: scale(@var(--size)) translate(@var(--p1), @var(--p2));
+            }
+        }
+    ); */
+    
+    /* --color: @p(#51eaea, #fffde1, #ff9d76, #FB3569);
+    --rule: (
+        :doodle {
+        @grid: 30x1 / 18vmin;
+        --deg: @p(-180deg, 180deg);
+        }
+        :container {
+        perspective: 30vmin;
+        }
+        :after, :before {
+        content: '';
+        background: var(--color); 
+        @place-cell: @r(100%) @r(100%);
+        @size: @r(6px);
+        @shape: heart;
+        }
+    
+        @place-cell: center;
+        @size: 100%;
+    
+        box-shadow: @m2(0 0 50px var(--color));
+        background: @m100(
+        radial-gradient(var(--color) 50%, transparent 0) 
+        @r(-20%, 120%) @r(-20%, 100%) / 1px 1px
+        no-repeat
+        );
+    
+        will-change: transform, opacity;
+        animation: scale-up 12s linear infinite;
+        animation-delay: calc(-12s / @size() * @i());
+
+        @keyframes scale-up {
+        0%, 95.01%, 100% {
+            transform: translateZ(0) rotate(0);
+            opacity: 0;
+        }
+        10% { 
+            opacity: 1; 
+        }
+        95% {
+            transform: 
+            translateZ(35vmin) rotateZ(@var(--deg));
+        }
+        }
+    ); */
+    /* --color: @p(#E63946, #F1FAEE, #A8DADC, #457B9D, #1D3557); */
+    /* --color:@p(rgba(230, 57, 143, 0.2), rgba(241, 250, 238, 0.2), rgba(168, 218, 220, 0.2), rgba(75, 161, 175, 0.2), rgba(89, 120, 165, 0));
+    --position: @r(0%, 100%) @r(0%, 100%);
+
+    --pat-1: (
+      linear-gradient(var(--color), @lp())
+      var(--position) / @r(1px) @r(15%)
+      no-repeat
+    );
+    
+    --pat-2: (
+      linear-gradient(
+      @pick(
+        -180deg, -135deg, -90deg, -45deg,
+        0deg, 45deg, 90deg, 135deg, 180deg 
+      ),
+      var(--color) 50%, transparent 0)
+      var(--position) / @r(3%) @lr()
+      no-repeat
+    );
+
+    --pat-3: (
+      linear-gradient(var(--color), @lp())
+      var(--position) / @r(15%) 1px
+      no-repeat
+    );
+
+    --pat-4: (
+      radial-gradient(var(--color), @lp())
+      var(--position) / @r(5%) @lr()
+      no-repeat
+    );
+
+    --pat-5: (
+      radial-gradient(var(--color) 50%, transparent 0)
+      var(--position) / @r(5%) @lr()
+      no-repeat
+    );
+
+    --pat-6: (
+      conic-gradient(
+        from calc(145deg + @ri(4) * 90deg), 
+        var(--color) 0,
+        @lp() 20%,
+        transparent 20%,
+        transparent 50%
+      )
+      var(--position) / @r(5%) @lr()
+      no-repeat
+    );
+
+    --pat-7: (
+      linear-gradient(
+        @p(45deg, -45deg),
+        transparent 0,
+        transparent calc(50% - .2px),
+        var(--color) calc(50% - .5px),
+        @lp() calc(50% + .5px),
+        transparent calc(50% + .2px)
+      )
+      var(--position) / @r(5%) @lr()
+      no-repeat
+    );
+
+    --rule: (
+      :doodle {
+        @grid: 1 / 100vmax;
+        position: absolute;
+        background:linear-gradient(45deg, #00715c,#002d67,#008096);
+      }
+      background-blend-mode: color-burn;
+      background:
+        
+        @m(100, var(--pat-1)),
+        @m(100, var(--pat-2)),
+        @m(100, var(--pat-3)),
+        @m(100, var(--pat-4)),
+        @m(100, var(--pat-5)),
+        @m(100, var(--pat-6)),
+        @m(100, var(--pat-7));
+    ); */
+     /* --rule: (
+        :doodle {
+            @grid: 10 / 100vmax; 
+            background: #0A0D25;
+            overflow: hidden;
+        }
+    
+        :container {
+            transform: scale(2) rotate(-45deg) translate(-10%, -10%);
+            @use: var(--water-color);
+        }
+    
+        background: hsla(
+            calc(150 - 3 * @row() * @col()),
+            78%, 98%, @r(.8)
+        );
+    
+        --d: @r(360deg);
+        --s: @r(.5, 3);
+    
+        transform: scale(var(--s)) rotate(var(--d));
+        animation: r @r(20s, 40s) linear infinite;
+    
+        @keyframes r {
+            to {
+                transform: scale(var(--s)) rotate(calc(var(--d) + 1turn));
+            }
+        }
+    ) */
+    /* --rule: (
+        :doodle {
+            @grid: 20x1 / 100vmax;
+            background:linear-gradient(45deg, #00715c,#002d67,#008096);
+        }
+        
+        @place-cell: center;
+        @size: 300%;
+    
+        transform: translate(@r(-100%, 100%));
+        mix-blend-mode: overlay;
+        background: @multi(500, (
+            repeating-radial-gradient(
+                @p(rgba(230, 57, 143, 0.5), rgba(241, 250, 238, 0.5), rgba(168, 218, 220, 0.5), rgba(75, 161, 175, 0.5), rgba(89, 120, 165, 0.5 )) @r(25%),
+                
+                transparent
+            )
+            @r(0%, 100%, .1) @r(0%, 100%, .1) /
+            @r(5%, 8%) @lr()
+            no-repeat
+        ));
+    ); */
+    --rule: (
+        :doodle {
+            @grid: 50x1 / 50vmin;
+            perspective: 23vmin;
+          }
+        
+          background: @multi(@r(50, 100), (
+            radial-gradient(
+              @p(rgba(255, 255, 255, 0.3), rgba(248, 243, 212,.3), rgba(65, 171, 246,.3), rgba(255,222,125,.3)) 15%,
+              transparent 50%
+            ) @r(100%) @r(100%) / @r(1%, 3%, .1) @lr() no-repeat
+          ));
+        
+          @size: 80%;
+          @place-cell: center;
+          
+          border-radius: 50%;
+          transform-style: preserve-3d;
+          animation: scale-up 20s linear infinite;
+          animation-delay: calc(@i() * -.4s);
+        
+          @keyframes scale-up {
+            0% {
+              opacity: 0;
+              transform: translate3d(0, 0, 0) rotate(0);
+            }
+            10% { 
+              opacity: 1; 
+            }
+            95% {
+              transform:
+                translate3d(0, 0, @r(50vmin, 55vmin))
+                rotate(@r(-360deg, 360deg));
+            }
+            100% {
+              opacity: 0;
+              transform: translate3d(0, 0, 1vmin);
+            }
+          }
+    );
+   
+}

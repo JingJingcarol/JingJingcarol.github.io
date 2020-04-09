@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h2>性能监控看版</h2>
+    <div id="dashboard">
+        <div class="cell" >
+            <p>浏览器版本：<span class="cell-v">chrome</span></p>
+            <p>网络类型：<span class="cell-v">other</span></p>
+            <p>进入本页面方式：<span class="cell-v">网页通过点击链接、地址栏输入、表单提交、脚本操作等方式加载</span></p>
+        </div>
+        <div class="cell">
+            <div class="progress">
+                <span></span>
+                <span class="error"></span>
+                <span class="warning"></span>
+                <span class="info"></span>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/underscore.js/1.9.1/underscore-min.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.7.0/echarts.min.js"></script>
+    <script src="https://cdn.bootcss.com/localforage/1.7.3/localforage.min.js"></script>
+    <script src="https://cdn.bootcss.com/toastr.js/2.1.4/toastr.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
