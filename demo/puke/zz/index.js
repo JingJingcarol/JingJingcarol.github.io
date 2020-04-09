@@ -280,7 +280,7 @@ function zz($el, opts) {
                     }
                 }
             }
-            return ret;
+            // return ret;
             return ret.sort(function(a, b) {
                 return Math.floor(Math.random() * 2 - 1)
             })
