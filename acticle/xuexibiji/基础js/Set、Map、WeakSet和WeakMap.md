@@ -16,11 +16,11 @@ Set类似于数组，本身是一个构造函数，用来生成 Set 数据结构
 let b =  new Set();
 b.add({val:1})
 b.add({val:1})
-//  输出 Set(2) {{val:1}, {val:1}}
+//  输出 Set(2) [{val:1}, {val:1}]
 let a = {val:2};
 b.add(a)
 b.add(a)
-// 输出 Set(3) {{val:1}, {val:1},{val:2}}
+// 输出 Set(3) [{val:1}, {val:1},{val:2}]
 ```
 
 也就是说明并不能判断对象是否重复,只能判断对象是否是同一个引用而去重的
