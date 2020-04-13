@@ -10,7 +10,8 @@
 	    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="../stylesheets/nav.css" media="screen">
         <link href="https://cdn.bootcss.com/github-markdown-css/4.0.0/github-markdown.min.css" rel="stylesheet">
-        <link href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/a11y-light.min.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/a11y-light.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../js/waifu.css"/>
         <!-- <link href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/arduino-light.min.css" rel="stylesheet"> -->
         <!-- <link href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/arduino-light.min.css" rel="stylesheet"> -->
         <!-- <link href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/atelier-cave-light.min.css" rel="stylesheet"> -->
@@ -53,6 +54,22 @@
 	      </footer>
 	
 		</section>
+		<div class="waifu">
+			<div class="waifu-tips"></div>
+			<canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+			<!-- <div class="waifu-tool">
+				<span class="fui-home"></span>
+				<span class="fui-chat"></span>
+				<span class="fui-eye"></span>
+				<span class="fui-user"></span>
+				<span class="fui-photo"></span>
+				<span class="fui-info-circle"></span>
+				<span class="fui-cross"></span>
+			</div> -->
+		</div>
+		<script src="../js/waifu-tips.js"></script>
+		<script src="../js/live2d.js"></script>
+		<script type="text/javascript">initModel("../js/")</script>
 		<script>
             marked.setOptions({
                 highlight: function (code) {

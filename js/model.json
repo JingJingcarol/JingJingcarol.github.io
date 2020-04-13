@@ -1,0 +1,192 @@
+{
+	"version": "1.0.0",
+	"model": "Pio/model.moc",
+	"textures": [
+		"Pio/textures/animal-costume-racoon.png",
+		"Pio/textures/animal-costume.png",
+		"Pio/textures/bunny-girl-costume-red.png",
+		"Pio/textures/bunny-girl-costume.png",
+		"Pio/textures/cake-costume-choco.png",
+		"Pio/textures/cake-costume-cream.png",
+		"Pio/textures/default-costume.png",
+		"Pio/textures/dress-costume-brown.png",
+		"Pio/textures/dress-costume.png",
+		"Pio/textures/elementary-school-costume-navy.png",
+		"Pio/textures/elementary-school-costume.png",
+		"Pio/textures/fall-dress-costume-beige.png",
+		"Pio/textures/fall-dress-costume-brown.png",
+		"Pio/textures/frill-bikini-costume-green.png",
+		"Pio/textures/frill-bikini-costume-purple.png",
+		"Pio/textures/frill-blouse-costume-green.png",
+		"Pio/textures/frill-blouse-costume-red.png",
+		"Pio/textures/furisode-costume.png",
+		"Pio/textures/halloween-costume.png",
+		"Pio/textures/hanbok-costume-pink.png",
+		"Pio/textures/hanbok-costume-red.png",
+		"Pio/textures/hanbok-costume-skyblue.png",
+		"Pio/textures/hanbok-costume-yellow.png",
+		"Pio/textures/hanbok-costume.png",
+		"Pio/textures/healer-costume.png",
+		"Pio/textures/kids-costume-navy.png",
+		"Pio/textures/kids-costume.png",
+		"Pio/textures/maid-costume-red.png",
+		"Pio/textures/maid-costume.png",
+		"Pio/textures/new2015-costume-pajamas.png",
+		"Pio/textures/new2015-costume.png",
+		"Pio/textures/night-witch-costume-black.png",
+		"Pio/textures/night-witch-costume-gray.png",
+		"Pio/textures/nightsky-costume.png",
+		"Pio/textures/overalls-costume-white.png",
+		"Pio/textures/overalls-costume.png",
+		"Pio/textures/pajamas-costume-pink.png",
+		"Pio/textures/pajamas-costume.png",
+		"Pio/textures/party-dress-costume-brown.png",
+		"Pio/textures/party-dress-costume-purple.png",
+		"Pio/textures/qipao-costume-pink.png",
+		"Pio/textures/qipao-costume-red.png",
+		"Pio/textures/ribbon-dress-costume-red.png",
+		"Pio/textures/ribbon-dress-costume-yellow.png",
+		"Pio/textures/sailor-costume-black.png",
+		"Pio/textures/sailor-costume.png",
+		"Pio/textures/sakura-costume-navy.png",
+		"Pio/textures/sakura-costume.png",
+		"Pio/textures/santa-costume-green.png",
+		"Pio/textures/santa-costume.png",
+		"Pio/textures/sarori-costume.png",
+		"Pio/textures/school-2017-costume-gray.png",
+		"Pio/textures/school-2017-costume-yellow.png",
+		"Pio/textures/school-costume-red.png",
+		"Pio/textures/school-costume.png",
+		"Pio/textures/sfc-uniform-costume-red.png",
+		"Pio/textures/sfc-uniform-costume-yellow.png",
+		"Pio/textures/shaman-costume-black.png",
+		"Pio/textures/shaman-costume-blue.png",
+		"Pio/textures/sinsiroad-shop-costume-junior.png",
+		"Pio/textures/sinsiroad-shop-costume-senior.png",
+		"Pio/textures/sorceress-costume.png",
+		"Pio/textures/sporty-hood-costume-black.png",
+		"Pio/textures/sporty-hood-costume-blue.png",
+		"Pio/textures/star-witch-costume-brown.png",
+		"Pio/textures/star-witch-costume.png",
+		"Pio/textures/succubus-costume-black.png",
+		"Pio/textures/succubus-costume-red.png",
+		"Pio/textures/sukumizu-costume-white.png",
+		"Pio/textures/sukumizu-costume.png",
+		"Pio/textures/summer-dress-costume-blue.png",
+		"Pio/textures/summer-dress-costume-white.png",
+		"Pio/textures/swimsuit-2017-costume-navy.png",
+		"Pio/textures/swimsuit-2017-costume-red.png",
+		"Pio/textures/tirami1-costume.png",
+		"Pio/textures/turtleneck-costume-red.png",
+		"Pio/textures/turtleneck-costume.png",
+		"Pio/textures/valentine-costume-brown.png",
+		"Pio/textures/valentine-costume-pink.png",
+		"Pio/textures/winter-coat-2017-costume-brown.png",
+		"Pio/textures/winter-coat-2017-costume-white.png",
+		"Pio/textures/winter-coat-costume-pink.png",
+		"Pio/textures/winter-coat-costume-white.png",
+		"Pio/textures/winter-costume-white.png",
+		"Pio/textures/winter-costume.png",
+		"Pio/textures/witch-costume-white.png",
+		"Pio/textures/witch-costume.png"
+	],
+	"layout": {
+		"center_x": 0.0,
+		"center_y": -0.05,
+		"width": 2.0
+	},
+	"hit_areas_custom": {
+		"head_x": [
+			-0.35,
+			0.6
+		],
+		"head_y": [
+			0.19,
+			-0.2
+		],
+		"body_x": [
+			-0.3,
+			-0.25
+		],
+		"body_y": [
+			0.3,
+			-0.9
+		]
+	},
+	"motions": {
+		"idle": [
+			{
+				"file": "Pio/motions/Breath1.mtn"
+			},
+			{
+				"file": "Pio/motions/Breath2.mtn"
+			},
+			{
+				"file": "Pio/motions/Breath3.mtn"
+			},
+			{
+				"file": "Pio/motions/Breath5.mtn"
+			},
+			{
+				"file": "Pio/motions/Breath7.mtn"
+			},
+			{
+				"file": "Pio/motions/Breath8.mtn"
+			}
+		],
+		"sleepy": [
+			{
+				"file": "Pio/motions/Sleeping.mtn"
+			}
+		],
+		"flick_head": [
+			{
+				"file": "Pio/motions/Touch Dere1.mtn"
+			},
+			{
+				"file": "Pio/motions/Touch Dere2.mtn"
+			},
+			{
+				"file": "Pio/motions/Touch Dere3.mtn"
+			},
+			{
+				"file": "Pio/motions/Touch Dere4.mtn"
+			},
+			{
+				"file": "Pio/motions/Touch Dere5.mtn"
+			},
+			{
+				"file": "Pio/motions/Touch Dere6.mtn"
+			}
+		],
+		"tap_body": [
+			{
+				"file": "Pio/motions/Sukebei1.mtn"
+			},
+			{
+				"file": "Pio/motions/Sukebei2.mtn"
+			},
+			{
+				"file": "Pio/motions/Sukebei3.mtn"
+			},
+			{
+				"file": "Pio/motions/Touch1.mtn"
+			},
+			{
+				"file": "Pio/motions/Touch2.mtn"
+			},
+			{
+				"file": "Pio/motions/Touch3.mtn"
+			},
+			{
+				"file": "Pio/motions/Touch4.mtn"
+			},
+			{
+				"file": "Pio/motions/Touch5.mtn"
+			},
+			{
+				"file": "Pio/motions/Touch6.mtn"
+			}
+		]
+	}
+}
