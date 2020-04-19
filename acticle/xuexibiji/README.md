@@ -21,15 +21,15 @@
   - [BFF](/工程化/BFF.md)
   - [同构](/工程化/同构.md)
   - cli
-  - CI/CD
+  - [CI/CD](/工程化/CICD.md)
 - 性能优化
-  - FP，FCP，FMP
-  - prefetch，preload，preconnect
-  - 内存泄漏
-  - 性能监控
-  - service worker
-  - web worker
-  - socket
+  - [FP，FCP，FMP](/性能优化/FP.md)
+  - [prefetch，preload，preconnect](/性能优化/prefetch.md)
+  - [内存泄漏](/性能优化/内存泄漏.md)
+  - [性能监控](/性能优化/性能监控.md)
+  - [service worker](/性能优化/serviceWorker.md)
+  - [web worker](/性能优化/webWorker.md)
+  - [WebSocket](/性能优化/WebSocket.md)
 - 面向对象
   - [SOLID原则](/面向对象/SOLID.md)
   - [private，projected，public](/面向对象/public.md)
@@ -63,12 +63,11 @@
   - [严格模式](/基础js/严格模式.md)
   - [13种proxy模式](/基础js/proxy模式.md)
 - typescript
-  - void、null、undefined
-  - 泛型
-  - 装置器
+  - [void、null、undefined](/typescript/void.md)
+  - [泛型](/typescript/泛型.md)
+  - [装饰器](/typescript/装饰器.md)
 - 测试
-  - 单元测试，接口测试，e2e测试，ui测试
-  - 性能测试
+  - [单元测试，接口测试，e2e测试，ui测试](/测试/测试.md)
 - 框架整理
   - 前端框架的发展过程
   - /vue/响应式原理
@@ -82,7 +81,6 @@
   - [观察者模式](/设计模式/观察者模式.md)
   - [发布订阅模式](/设计模式/发布订阅模式.md)
   - IOC 面向切面
-  - Aop 和 Aoc
   - pm2 集群
   - MVC 与 MVVM
 - 计算机基础
@@ -106,7 +104,7 @@
   - ubuntu 网络代理设置
   - docker基本概念与用法
 - 算法基础
-  - 上台阶问题
+  - [上台阶问题](/算法基础/上台阶问题.md)
   - [64匹马，取前4，最优算法](/算法基础/64匹马.md)
 - css
   - [getComputedStyle](/css/getComputedStyle.md)

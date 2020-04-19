@@ -57,6 +57,7 @@
 				// type:'text',
 				success:function(text){
 					$('#main-body').html(marked(text))
+					$('#main-body li').each(function(){$(this).find('a').length == 0 && $(this).hide()})
 				}
 			})
 			$('#main-body').on('click','a',function(e){
