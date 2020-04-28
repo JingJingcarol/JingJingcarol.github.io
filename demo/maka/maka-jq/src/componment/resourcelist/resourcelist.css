@@ -1,0 +1,11 @@
+.resource-list .resource-item{
+    height: 10rem;
+    padding: 0.5rem;
+    text-align: center;
+    cursor: grab;
+}
+.resource-item img{
+    max-width: 100%;
+    max-height:100%;
+    box-shadow: 0 0 4px #ccc;
+}

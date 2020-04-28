@@ -1,0 +1,52 @@
+.setting{
+    position: absolute;
+    top: 3rem;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    transform: translateX(15.1rem);
+    transition: transform 0.5s;
+}
+.setting.open{
+    transform: translateX(0);
+}
+.setting>.setting-open{
+    background: #fafafa;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+    line-height: 1.5rem;
+    text-align: center;
+    border-radius: 2px 0 0 2px;
+    cursor: pointer;
+    box-shadow: 0 0 4px #666;
+}
+.setting-box{
+    background: #fafafa;
+    padding: 0.5rem;
+    box-shadow: 0 0 4px #666;
+    width: 15rem;
+}
+.setting-box .setting-item-row{
+    font-size: 0.8rem;
+}
+.setting-box .setting-item-col{
+    display: flex;
+    padding: 0.5rem 0;
+    text-align: center;
+}
+.setting-box .setting-item-col label{
+    white-space: nowrap;
+    margin: 0 0.5rem;
+}
+.setting-box .setting-item-col input{
+    border: 1px solid #ccc;
+    max-width: 100%;
+    min-width: 0px;
+    border-radius: 2px;
+}
+.setting-box .setting-item-col button{
+    margin: auto;
+    cursor: pointer;
+}

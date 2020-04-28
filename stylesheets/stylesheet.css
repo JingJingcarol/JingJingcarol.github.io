@@ -362,3 +362,12 @@ a:hover {
         font-size: 0.9rem;
     }
 }
+
+.maplist{
+    display: flex;
+    align-items: baseline;
+}
+.maplist .date{
+    font-size: 0.7rem;
+    margin-left: 2rem;
+}

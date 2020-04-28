@@ -1,0 +1,15 @@
+{
+    
+    "compilerOptions": {
+        "target": "ES5",
+        "experimentalDecorators": true,
+        "resolveJsonModule": true,
+        "lib":[
+            "es6",
+            "DOM"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

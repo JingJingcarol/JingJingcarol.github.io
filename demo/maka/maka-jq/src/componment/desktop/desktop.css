@@ -1,0 +1,55 @@
+.desktop{
+    width: 375px;
+    height: 667px;
+    box-shadow: 0 0 10px #aaa;
+    background: #fff;
+    margin: auto;
+    position: relative;
+}
+.drophere{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px dashed;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,.3);
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    z-index: 1000;
+}
+.desktop .resource-item{
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    cursor: grabbing;
+}
+.desktop .resource-item img{
+    box-shadow: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+    /* pointer-events: none; */
+}
+.desktop .resource-item.active{
+    border:1px solid var(--maincolor)
+}
+.desktop .resource-item .remove{
+    position: absolute;
+    background: #999;
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.5rem;
+    color: #fff;
+    border-radius: 50%;
+    line-height: 1.2rem;
+    top: -0.6rem;
+    right: -0.6rem;
+    display: none;
+    cursor: pointer;
+}
+.desktop .resource-item.active .remove{
+    display: block;
+}

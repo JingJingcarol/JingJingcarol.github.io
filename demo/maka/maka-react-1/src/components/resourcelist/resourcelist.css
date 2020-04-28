@@ -1,0 +1,47 @@
+.resource-list .resource-item{
+    height: 10rem;
+    padding: 0.5rem;
+    text-align: center;
+    cursor: grab;
+}
+
+.resource-item img{
+    max-width: 100%;
+    max-height:100%;
+    box-shadow: 0 0 4px #ccc;
+}
+.desktop .resource-item{
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    cursor: grabbing;
+}
+.desktop .resource-item img{
+    box-shadow: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+    /* pointer-events: none; */
+}
+.desktop .resource-item.active{
+    border:1px solid var(--maincolor)
+}
+
+.desktop .resource-item .remove{
+    position: absolute;
+    background: #999;
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.5rem;
+    color: #fff;
+    border-radius: 50%;
+    line-height: 1.2rem;
+    top: -0.6rem;
+    right: -0.6rem;
+    display: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+.desktop .resource-item.active .remove{
+    display: block;
+}

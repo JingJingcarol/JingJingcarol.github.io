@@ -1,0 +1,58 @@
+.sortlist-box{
+    flex:1 1 auto;
+    overflow: auto;
+}
+.sortlist{
+    padding: 1rem;
+    text-align: center;
+    margin: 0.5rem;
+    position: relative;
+}
+.sortlist.active{
+    border:2px solid var(--maincolor)
+}
+.sortlist .card{
+    width: 93.75px;
+    height:166.75px;
+    box-shadow: 0 0 8px #ccc;
+    margin: 0.5px 0;
+    overflow: hidden;
+}
+.sortlist .card  .desktop{
+    transform: scale(0.25);
+    transform-origin: top left;
+}
+.sortlist .name{
+    cursor: text;
+}
+.tool{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;  
+    z-index: 10;
+    pointer-events: none;
+}
+.tool span{
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+    background: var(--maincolor);
+    border-radius: 50%;
+    color: #fff;
+    line-height: 1.5rem;
+    margin: 0.2rem;
+    cursor: pointer;
+    pointer-events: all;
+}
+.sortlist:hover .tool{
+    display: flex;
+}
+.sortlist:first-child .arrawup,.sortlist:last-child .arrawdown{
+    display: none;
+}

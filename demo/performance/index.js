@@ -194,3 +194,14 @@ class cell {
     drawTitle(){}
 
 }
+
+$('.clock').each((i,c) => {
+  const size = $(c).attr('data-size');
+  const realwidth = parseInt($(c).css('--width'));
+  const width = realwidth * 0.928 / 2 - 1;
+  let deg = parseInt(size) / 100;
+  $(c).css({
+    '--size':size,
+    '--bound':`${width * Math.sin( Math.PI * 2 * deg )}px ${-width * Math.cos( Math.PI * 2 * deg)}px 1px ${realwidth * 0.036}px`
+  })
+})
