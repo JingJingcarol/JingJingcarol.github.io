@@ -10,7 +10,8 @@ css-doodle{
     width: 120%;
     height: 120%;
     overflow: hidden;
-    opacity: .1 ;
+    /* opacity: .1 ; */
+    mix-blend-mode: overlay;
     --bg: #092d4e;
     --rule:(
      :doodle {
