@@ -27,7 +27,8 @@ window.onload = function() {
             var point = {
                 x: random(0, w),
                 y: random(0, h),
-                c: '#' + (Math.random() * 0x404040 + 0xaaaaaa | 0).toString(16),
+                // c: '#' + (Math.random() * 0x404040 + 0xaaaaaa | 0).toString(16),
+                c:'#fcc7ff',
                 r: random(0, 1),
                 vx: -.5 + Math.random(),
                 vy: -.5 + Math.random()
