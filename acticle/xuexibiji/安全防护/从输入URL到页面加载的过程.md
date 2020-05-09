@@ -1,5 +1,7 @@
 # 从输入URL到页面加载的过程
 
+(参考资料：[https://segmentfault.com/a/1190000012925872#articleHeader16](https://segmentfault.com/a/1190000012925872#articleHeader16) )
+
 ## 第一步：从浏览器接收url到开启网络请求线程
 
 ### 多进程的浏览器
