@@ -1,4 +1,4 @@
-class performanceConf {
+class PerformanceConf {
     constructor(){
 
     }
@@ -169,13 +169,13 @@ class performanceConf {
     }
 }
 
-class dashboard {
+class Dashboard {
     constructor(elem,setting){
 
     }
 }
 
-class cell {
+class Cell {
     constructor(options){
         const defaultopt = {
             top:0,
@@ -195,6 +195,11 @@ class cell {
 
 }
 
+class NumberCell extends Cell{
+  drawCell(){
+
+  }
+}
 $('.clock').each((i,c) => {
   const size = $(c).attr('data-size');
   const realwidth = parseInt($(c).css('--width'));
@@ -205,3 +210,66 @@ $('.clock').each((i,c) => {
     '--bound':`${width * Math.sin( Math.PI * 2 * deg )}px ${-width * Math.cos( Math.PI * 2 * deg)}px 1px ${realwidth * 0.036}px`
   })
 })
+$('.num').each((i,c) => {
+  c.className = 'num num-0';
+  tocountdown(c)
+})
+
+function tocountdown(c){
+  const size = $(c).attr('size') || 8;
+  let currentsize = parseInt($(c).attr('currentsize')) || 0;
+  
+  if(currentsize == size ){
+    return;
+  }
+  currentsize++;
+  c.className = 'num num-' + currentsize;
+  $(c).attr('currentsize',currentsize);
+  
+  setTimeout(() => {
+    tocountdown(c)
+  },100)
+}
+
+$('.num-box').each((i,c) => {
+  tocountdownNumber(c)
+})
+function tocountdownNumber(c){
+  const size = $(c).attr('size') || 0
+  let currentsize = parseInt($(c).attr('currentsize')) || 0;
+  if(currentsize == size ){
+    return;
+  }
+  currentsize += parseInt((size - currentsize)/20) || 1 ;
+  const numbers = '<div class="num num-'+currentsize.toString().split('').join('"></div><div class="num num-')+'"></div>';
+  $(c).html(numbers);
+  $(c).attr('currentsize',currentsize);
+  setTimeout(() => {
+    tocountdownNumber(c)
+  },100/60)
+}
+
+function drawPeakChart(el,data){
+  $(el).empty();
+  const colorArr = ['hsl(192, 60%, 60%)','hsl(207, 32%, 60%)','hsl(234, 32%, 60%)','hsl(345, 58%, 60%)','hsl(185, 27%, 60%)','hsl(298, 29%, 60%)','hsl(220,  6%, 90%)','hsl(220,  6%, 90%)','hsl(220,  6%, 90%)'];
+  const len = data.length;
+  const r   = el[0].offsetWidth / 2
+      , charth = 1.5 * r;
+  for(let i = 0; i < len;i++){
+    let slice    = 2 * Math.PI / len;
+    let npos     = i * slice - Math.PI;
+    let val      = data[i];
+    let h        = val * charth / 100;
+    let fang     = slice/2
+      , chord    = 2 * r * Math.sin(fang/2)
+      , chang    = (Math.PI - fang) / 2
+      , alt2mp   = chord * Math.sin(chang)
+      , slope    = Math.atan(h / alt2mp)
+      , slopeLen = Math.sqrt(Math.pow(h,2) + Math.pow(alt2mp,2))
+      , scaleY   = slopeLen / r
+      , skew     = Math.atan(chord * Math.cos(chang) / slopeLen);
+    const color = colorArr[i%colorArr.length]
+    $(el).append(`<div class="face" style="transform:rotateZ(${npos}rad) rotateX(${(slope - Math.PI)}rad) skewX(${skew}rad) scaleY(${scaleY});background-image:-webkit-linear-gradient(bottom right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25) 50%, transparent 50%), -webkit-linear-gradient(bottom right, ${color}, ${color} 50%, transparent 50%)"></div>
+    <div class="face" style="transform:rotateZ(${(npos + slice)}rad) rotateX(${(-slope)}rad) skewX(${skew}rad) scaleY(${scaleY});background-image:-webkit-linear-gradient(bottom right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25) 50%, transparent 50%), -webkit-linear-gradient(bottom right, ${color}, ${color} 50%, transparent 50%)"></div>`)
+  }
+}
