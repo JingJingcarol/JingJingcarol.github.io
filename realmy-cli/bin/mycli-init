@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+const path = require('path')
+const program = require('commander')
+const inquirer = require('inquirer')
+const ora = require('ora')
+
+const toastr = require('../lib/toastr')
+const generate = require('../lib/generate')
+
+
+inquirer
+    .prompt([
+        {
+            type:'input',
+            message:'please entry project name',
+            name:'projectname'
+        },
+        {
+            type:'input',
+            message:'please entry version',
+            name:'projectver'
+        },
+        
+        {
+            type:'input',
+            message:'what is your name',
+            name:'author'
+        },
+        {
+            type:'confirm',
+            message:'is it begin?',
+            name:'ok'
+        }
+    ])
+    .then(async answers => {
+        toastr.info('开始创建项目');
+        if(answers.ok){
+            const spinner = ora('begin')
+            spinner.start()
+            spinner.text = '创建项目'
+            await generate(answers,path.join(process.cwd(),'./' + answers.projectname))
+            spinner.stop()
+            toastr.success('创建项目完毕！')
+        }else{
+            toastr.warning('not begin thank you for your support!')
+        }
+    })

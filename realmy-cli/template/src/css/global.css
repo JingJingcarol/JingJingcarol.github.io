@@ -1,0 +1,183 @@
+/* 全局变量 */
+:root {
+	--maincolor: #22affa;
+	--accessorycolor: #1becae;
+	--mainopacitycolor: rgba(34, 175, 250, .3);
+	--success: #28a745;
+	--info: #17a2b8;
+	--warning: #ffc107;
+	--danger: #dc3545;
+	--light: #f8f9fa;
+	--dark: #343a40;
+	--sectionpad: 0.5rem;
+	--minpad: 0.1rem;
+	--nomalpad: 0.3rem;
+	--modpad: 0.8rem;
+	--largepad: 1rem;
+	--inputborder: #ddd;
+	--titlecolor: #323232;
+	--desccolor: #808080;
+	--inputcolor: #646464;
+	--disabledcolor: #ccc;
+	--borderRadius: 4px;
+	--lightborder: #f1f1f1;
+}
+
+/* -- 基本共用-- */
+* {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: none;
+	font-family: sans-serif;
+	font-size: 15px;
+}
+
+html,
+body,
+header,
+section,
+footer,
+div,
+ul,
+ol,
+li,
+img,
+a,
+span,
+em,
+del,
+legend,
+center,
+strong,
+var,
+fieldset,
+form,
+label,
+dl,
+dt,
+dd,
+cite,
+input,
+hr,
+time,
+mark,
+code,
+figcaption,
+figure,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	font-style: normal;
+}
+
+html,
+body {
+	height: 100%;
+	-webkit-touch-callout: none;
+	-webkit-text-size-adjust: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-user-select: none;
+	background-color: #fff;
+	color: var(--titlecolor)
+}
+
+nav,
+article,
+aside,
+details,
+main,
+header,
+footer,
+section,
+fieldset,
+figcaption,
+figure {
+	display: block;
+}
+
+img,
+a,
+button,
+em,
+del,
+strong,
+var,
+label,
+cite,
+small,
+time,
+mark,
+code,
+textarea {
+	display: inline-block;
+}
+
+header,
+section,
+footer {
+	position: relative;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+span {
+	display: inline-block;
+}
+
+a {
+	color: #0062cc;
+	text-decoration: none;
+	background-color: transparent;
+}
+
+a:active,
+a:hover {
+	outline: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td,
+th {
+	padding: 0;
+}
+
+.g-nav{
+    width: 100vw;
+    color: #fff;
+    background: var(--dark);
+}
+.g-nav ul{
+    display: flex;
+    padding: 0.8rem 1rem;
+    line-height: 1.5;
+}
+.g-nav ul li {
+    padding: 0 0.5rem;
+}
+.g-nav ul a{
+    color: #fff;
+}
+/* tools */
+.g-text-center{
+    text-align: center;
+} 
+.g-padding-nomal{
+    padding: 1rem;
+}
